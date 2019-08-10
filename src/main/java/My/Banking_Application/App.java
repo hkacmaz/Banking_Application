@@ -2,15 +2,9 @@ package My.Banking_Application;
 
 import java.util.Scanner;
 
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Boolean program = true;
 		
@@ -18,40 +12,46 @@ public class App
 		
 		Scanner scan1 =  new Scanner(System.in); // for options
 		Scanner scan2 = new Scanner(System.in); // for other inputs
+		Scanner scan3 = new Scanner(System.in);
+		Scanner scan4 = new Scanner(System.in);
+		Scanner scan5 = new Scanner(System.in);
 		
-		Account account_object = new Account();
+		Account objectAccount = new Account();
 		
 		while (program) {
 			
 			System.out.println("Here are the options");
-			System.out.println(" A -> Account Balance \n D -> Deposit Balance \n W -> Withdraw Money \n S -> Account Summary \n E -> Exit ");
+			System.out.println(" O -> Open a new Account \n A -> Account Balance \n D -> Deposit Balance");
+			System.out.println(" W -> Withdraw Money \n S -> Account Summary \n E -> Exit ");
 			
 			s = scan1.nextLine();
 			
 			switch (s) {
-			case "A": //Account Balance
-				account_object.Account_Balance();
-				break;
+			case "O": //Open New Account
 				
-			case "D": //Deposit Balance
-				System.out.println("deposit balance");
-				int amount_entered = 0;
-				System.out.println("Please enter the amount you wish to deposit into = ");
-				amount_entered = scan2.nextInt();
-				account_object.Deposit_Balance(amount_entered);
-				break;
+				System.out.println("Please enter the first name: ");
+				String fname = scan2.nextLine();
+				System.out.println("Please enter the last name: ");
+				String lname = scan3.nextLine();
 				
-			case "W": //Withdraw Money
-				System.out.println("withdraw");
-				int amount_to_withdraw=0;
-				System.out.println("Please enter the amount you wish to withdraw= ");
-				amount_to_withdraw = scan2.nextInt();
-				account_object.Withdraw_Money(amount_to_withdraw);
-				break;
+				/*
 				
-			case "S": //Account Summary
-				System.out.println("summary");
-				account_object.Account();
+				if (objectAccount.AccCheck(fname, lname)) {		// if AccCheck has status, then will have True return
+										// means we will confirm the customer exist with same fname and lname
+					
+					//System.out.println("Sorry there is a customer under this name.\n Please try with different name! ");
+					
+				} else {
+				
+					System.out.println("there is no customer with this fname and lname please enter more info:");
+					
+					*/
+				System.out.println("Please enter the phone number in xxxxxx format");
+				String phone_no = scan5.nextLine();
+					
+				objectAccount.OpenAccount(fname, lname, phone_no);
+
+				
 				break;
 				
 			case "E": //Exit
