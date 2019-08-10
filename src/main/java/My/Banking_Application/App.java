@@ -46,13 +46,18 @@ public class App
 					System.out.println("there is no customer with this fname and lname please enter more info:");
 					
 					*/
-				System.out.println("Please enter the phone number in xxxxxx format");
+				System.out.println("Please enter the phone number in xxxxxxxxxxx format");
 				String phone_no = scan5.nextLine();
 					
-				objectAccount.OpenAccount(fname, lname, phone_no);
-
-				
+				Account.OpenAccount(fname, lname, phone_no);
 				break;
+				
+			case "A": //Account Balance
+				System.out.println("Please enter the Account_NO you wish to get the balance out: ");
+				Integer acc_no = scan2.nextInt();
+				Account.GetAccountBalance(acc_no);
+				break;
+
 				
 			case "E": //Exit
 				System.out.println("exit --- BYE ---");
