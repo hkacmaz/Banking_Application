@@ -21,8 +21,8 @@ public class App
 		while (program) {
 			
 			System.out.println("Here are the options");
-			System.out.println(" O -> Open a new Account \n A -> Account Balance \n D -> Deposit Balance");
-			System.out.println(" W -> Withdraw Money \n S -> Account Summary \n E -> Exit ");
+			System.out.println(" O -> Open a new Account \n A -> Account Balance \n D -> Deposit Money");
+			System.out.println(" W -> Withdraw Money \n E -> Exit ");
 			
 			s = scan1.nextLine();
 			
@@ -57,7 +57,18 @@ public class App
 				Integer acc_no = scan2.nextInt();
 				Account.GetAccountBalance(acc_no);
 				break;
-
+				
+			case "D": //Deposit Balance
+				System.out.println("deposit balance");
+				Integer amount_entered = null;
+				Integer acc_no2 = null;
+				System.out.println("Please enter the account no you wish to deposit:");
+				acc_no2 = scan2.nextInt();
+				System.out.println("Please enter the amount you wish to deposit into = ");
+				amount_entered = scan3.nextInt();
+				MoneyTransactions.DepositMoney(amount_entered, acc_no2);
+				
+				break;
 				
 			case "E": //Exit
 				System.out.println("exit --- BYE ---");
@@ -65,7 +76,7 @@ public class App
 				break;
 
 			default:
-				System.out.println("Please enter a proper input A,D,W or E");
+				System.out.println("Please enter a proper input O,A,D,W or E");
 				break;
 			}
 			
