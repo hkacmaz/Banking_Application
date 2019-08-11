@@ -53,4 +53,37 @@ public class MoneyTransactions {
 		}
 		
 	}
+	
+public static void WithdrawMoney(Integer amount_entered2, Integer account_no2) {
+		
+        Connection connection2 = null;
+        PreparedStatement pstmt2 = null;
+
+
+        String query2 = "UPDATE balances SET balance=balance-? WHERE account_ID=?";
+        
+        try {
+        	Class.forName(JDBC_DRIVER);
+        	
+        	System.out.println("Connecting to database ...");
+        	
+        	connection2 = DriverManager.getConnection(DB_URL,USER,PASS);
+        	
+        	System.out.println("Connection successfull!!!");
+        	
+        	pstmt2 = connection2.prepareStatement(query2);
+        	pstmt2.setInt(1, amount_entered2);
+        	pstmt2.setInt(2, account_no2);
+        	
+        	pstmt2.executeUpdate();
+        	
+        	System.out.println("Successfully withdrawn.");
+        	
+        	Account.GetAccountBalance(account_no2);
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+	}
 }
