@@ -60,7 +60,7 @@ public static void WithdrawMoney(Integer amount_entered2, Integer account_no2) {
         PreparedStatement pstmt2 = null;
 
 
-        String query2 = "UPDATE balances SET balance=balance-? WHERE account_ID=?";
+        String query2 = "UPDATE balances SET balance=CAST(balance AS SIGNED)-CAST(? AS SIGNED) WHERE account_ID=?";
         
         try {
         	Class.forName(JDBC_DRIVER);

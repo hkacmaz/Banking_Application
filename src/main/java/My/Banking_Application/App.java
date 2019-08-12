@@ -60,14 +60,24 @@ public class App
 				
 			case "D": //Deposit Balance
 				System.out.println("deposit balance");
-				Integer amount_entered = null;
+				Integer amount_entered2 = null;
 				Integer acc_no2 = null;
 				System.out.println("Please enter the account no you wish to deposit:");
 				acc_no2 = scan2.nextInt();
 				System.out.println("Please enter the amount you wish to deposit into = ");
-				amount_entered = scan3.nextInt();
-				MoneyTransactions.DepositMoney(amount_entered, acc_no2);
+				amount_entered2 = scan3.nextInt();
+				MoneyTransactions.DepositMoney(amount_entered2, acc_no2);
+				break;
 				
+			case "W": //Withdraw Money
+				System.out.println("withdraw");
+				Integer amount_entered3 = null;
+				Integer acc_no3 = null;
+				System.out.println("Please enter the account no you wish to withdraw money:");
+				acc_no3 = scan2.nextInt();
+				System.out.println("Please enter the amount you wish to withdraw from account = ");
+				amount_entered3 = scan3.nextInt();
+				MoneyTransactions.WithdrawMoney(amount_entered3, acc_no3);
 				break;
 				
 			case "E": //Exit

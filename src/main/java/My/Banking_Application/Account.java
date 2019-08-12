@@ -45,9 +45,7 @@ public class Account {
 	            pstmt2.setString(3, phone_no);
 	            
 	            int status = pstmt2.executeUpdate();
-	            if(status > 0) {
-	               System.out.println("Record is inserted successfully !!!");
-	            }
+	            
 				
 			} catch (SQLException | ClassNotFoundException e) {
                 // TODO Auto-generated catch block
